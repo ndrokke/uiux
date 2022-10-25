@@ -1,0 +1,45 @@
+body {
+	padding:0px;
+	margin:0px;
+}
+
+/* LAYOUT UTILITIES */
+.style-section {
+    margin-bottom:2em;
+}
+.flex-row {
+display:flex;
+flex-direction:row;
+}
+
+.flex-column {
+display:flex;
+flex-direction:column;
+}
+
+
+.grid-row {
+    display: grid;
+    grid-gap: 1em;
+  }
+  
+  .grid-col-1,
+  .grid-col-2,
+  .grid-col-3 {
+    grid-template-columns: auto;
+  }
+  
+@media (min-width: 768px) {
+ 
+    .grid-col-1 {
+      grid-template-columns: auto;
+    }
+  
+    .grid-col-2 {
+      grid-template-columns: auto auto;
+    }
+  
+    .grid-col-3 {
+      grid-template-columns: auto auto auto;
+    }
+  }

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/styles.css">
+<title>Design System</title>
+<style>
+
+caption {
+caption-side: top;
+}
+th, td {
+padding:4px 8px;
+}
+.wrapper {
+background-color:#c6c6c6;
+padding:1em;
+}
+.style-section {
+margin-bottom:2em;
+padding:1em;
+background-color:#fff;
+}
+
+
+</style>
+</head>
+<body>
+<div class="wrapper">
+<section class="style-section">
+<h2 class="heading">Colors</h2>
+<h5 class="sub-heading">Color Palette</h5>
+<div class="color-palette flex-column">     
+<section class="color-group color-primary">
+<div class="primary--darkest"></div>
+<div class="primary--darker"></div>
+<div class="primary"></div>
+<div class="primary--lighter"></div>
+<div class="primary--lightest"></div>
+</section>
+<section class="color-group color-secondary">
+<div class="secondary--darkest"></div>
+<div class="secondary--darker"></div>
+<div class="secondary"></div>
+<div class="secondary--lighter"></div>
+<div class="secondary--lightest"></div>
+</section>
+<section class="color-group color-success">
+<div class="success--darkest"></div>
+<div class="success--darker"></div>
+<div class="success"></div>
+<div class="success--lighter"></div>
+<div class="success--lightest"></div>
+</section>
+<section class="color-group color-warning">
+<div class="warning--darkest"></div>
+<div class="warning--darker"></div>
+<div class="warning"></div>
+<div class="warning--lighter"></div>
+<div class="warning--lightest"></div>
+</section>    
+<section class="color-group color-danger">
+<div class="danger--darkest"></div>
+<div class="danger--darker"></div>
+<div class="danger"></div>
+<div class="danger--lighter"></div>
+<div class="danger--lightest"></div>
+</section>
+</div>
+<table class="table">
+<caption class="sub-heading">Background color utilities</caption>
+<thead><tr><th style="min-width:200px;">Type</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><code>.bg--primary</code></td><td class="text--light bg--primary">.bg--primary</td></tr>
+<tr><td><code>.bg--secondary</code></td><td class="text--light bg--secondary">.bg--secondary</td></tr>
+<tr><td><code>.bg--success</code></td><td class="text--light bg--success">.bg--success</td></tr>
+<tr><td><code>.bg--warning</code></td><td class="text--light bg--warning">.bg--warning</td></tr>
+<tr><td><code>.bg--danger</code></td><td class="text--light bg--danger">.bg--danger</td></tr>
+<tr><td><code>.bg--black</code></td><td class="text--light bg--black">.bg--black</td></tr>
+<tr><td><code>.bg--dark</code></td><td class="text--light bg--dark">.bg--dark</td></tr>
+<tr><td><code>.bg--light</code></td><td class="bg--light">.bg--light</td></tr>
+<tr><td><code>.bg--white</code></td><td class="bg--white">.bg--white</td></tr> 
+</tbody>
+</table>
+<table class="table">
+<caption class="sub-heading">Text color utilities</caption>
+<thead><tr><th style="min-width:200px;">Class</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><code>.text--primary</code></td><td>  <span class="text--primary">No one shall be subjected to arbitrary arrest, detention or exile.</span></td></tr>
+<tr><td><code>.text--secondary</code></td><td>  <span class="text--secondary">No one shall be subjected to arbitrary arrest, detention or exile.</span></td></tr>
+<tr><td><code>.text--success</code></td><td> <span class="text--success">No one shall be subjected to arbitrary arrest, detention or exile.</span></td></tr>
+<tr><td><code>.text--warning</code></td><td><span class="text--warning">No one shall be subjected to arbitrary arrest, detention or exile.</span></td></tr>
+<tr><td><code>.text--danger</code></td><td>   <span class="text--danger">No one shall be subjected to arbitrary arrest, detention or exile.</span></td></tr>
+<tr><td><code>.text--dark</code></td><td>  <span class="text--dark">No one shall be subjected to arbitrary arrest, detention or exile.</span></td></tr>
+<tr><td><code>.text--light</code></td><td class="bg--dark"> <span class="text--light">No one shall be subjected to arbitrary arrest, detention or exile.</span></td></tr>
+</tbody>
+</table>
+</section>
+<section class="style-section">
+<h2 class="heading">Typography</h2>
+<table class="table">
+<caption class="sub-heading">Headings</caption>
+<thead><tr><th style="min-width:200px;">Class</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><code>.h1</code></td><td><h1>No one shall be subjected to arbitrary arrest, detention or exile.</h1></td></tr>
+<tr><td><code>.h2</code></td><td><h2>No one shall be subjected to arbitrary arrest, detention or exile.</h2></td></tr>
+<tr><td><code>.h3</code></td><td><h3>No one shall be subjected to arbitrary arrest, detention or exile.</h3></td></tr>
+<tr><td><code>.h4</code></td><td><h4>No one shall be subjected to arbitrary arrest, detention or exile.</h4></td></tr>
+<tr><td><code>.h5</code></td><td><h5>No one shall be subjected to arbitrary arrest, detention or exile.</h5></td></tr>
+</tbody>
+</table>
+<table class="table">
+<caption class="sub-heading">Body</caption>
+<thead><tr><th style="min-width:200px;">Class</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><code>(default)</td></td><td><span>No one shall be subjected to arbitrary arrest, detention or exile.</span></td>
+<tr><td><code>.strong</code></td><td><strong>No one shall be subjected to arbitrary arrest, detention or exile.</strong></td></tr>
+<tr><td><code>.small</code></td><td><small>No one shall be subjected to arbitrary arrest, detention or exile.</small></td></tr>
+<tr><td><code>.monospace</code></td><td><span class="monospace">No one shall be subjected to arbitrary arrest, detention or exile.</span></td></tr>
+</tbody>
+</table>
+</section>
+<section class="style-section">
+<h2 class="heading">Buttons</h2>
+<table class="table">
+<caption class="sub-heading">Button variants</caption>
+<thead>
+<tr>
+<th>Description</th>
+<th>Variant</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>For the principal call to action on the page. Primary buttons should only appear once per screen (not including the application header, modal dialog, or side panel).</td>
+<td><button type="button" class="btn btn-primary">Button Primary</button></td>
+</tr>
+<tr>
+<td>For secondary actions on each page. Secondary buttons can only be used in conjunction with a primary button. As part of a pair, the secondary button's function is to perform the negative action of the set, such as “Cancel” or “Back”. Do not use a secondary button in isolation and do not use a secondary button for a positive action.</td>
+<td><button type="button" class="btn btn-secondary">Button Secondary</button></td>
+</tr>
+<tr>
+<td>For less prominent, and sometimes independent, actions. Tertiary buttons can be used in isolation or paired with a primary button when there are multiple calls to action. Tertiary buttons can also be used for sub-tasks on a page where a primary button for the main and final action is present.</td>
+<td><button type="button" class="btn btn-tertiary">Button Tertiary</button></td>
+</tr>
+<tr>
+<td>For actions that could have destructive effects on the user's data (for example, delete or remove). Danger button has three styles: primary, tertiary, and ghost.</td>
+<td><button type="button" class="btn btn-danger">Button Danger</button></td>
+</tr>
+<tr>
+<td>For the least pronounced actions; often used in conjunction with a primary button. In a situation such as a progress flow, a ghost button may be paired with a primary and secondary button set, where the primary button is for forward action, the secondary button is for “Back”, and the ghost button is for “Cancel”.</td>
+<td><button type="button" class="btn btn-ghost">Button Ghost</button></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+</body>
+</html>

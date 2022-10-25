@@ -1,0 +1,23 @@
+@import "colors.css"; 
+@import "typography.css";
+@import "layout.css";
+@import "tables.css";
+@import "buttons.css";
+
+:root {   
+--qt-border-width: 1px;
+--qt-border-style: solid;
+--qt-border-color: #dee2e6;
+--qt-border-color-translucent: rgba(0, 0, 0, 0.175);
+--qt-border-radius: 0.375rem;
+--qt-border-radius-sm: 0.25rem;
+--qt-border-radius-lg: 0.5rem;
+--qt-border-radius-xl: 1rem;
+--qt-border-radius-2xl: 2rem;
+--qt-border-radius-pill: 50rem;
+}
+
+
+
+
+
