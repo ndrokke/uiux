@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href='https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.2/autocomplete-lhc.min.css' rel="stylesheet">
+    <link href="css/1.12.1/jquery.dataTables.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+    <h1>Hello, world!</h1>
+    <div id="idvWrapper" class="mb-3 d-flex">
+        <label for="npi_idv" class="form-label">Provider Organization</label>
+        <input type="text" id="npi_idv" class="form-control" placeholder="Provider name or NPI">
+      </div>
+      <button type="button" class="btn btn-success" id="btnSaveIdvProvider">Save</button>
+<section id="providerDataInputControls">
+
+  <input type="hidden" id="getNpi" class="form-control">
+  <input type="hidden" id="getFirstName" class="form-control">
+  <input type="hidden" id="getLastName" class="form-control">
+  <input type="hidden" id="getProviderType" class="form-control">
+  <input type="hidden" id="getGender" class="form-control">
+  <input type="hidden" id="getAddress" class="form-control">
+  <input type="hidden" id="getPhone" class="form-control">
+</section>      
+      <div class="table-wrapper">
+        <table id="example" class="display" style="width:100%">
+          <thead>
+              <tr>
+                  <th>NPI</th>
+                  <th>Name</th>
+                  <th>Provider Type</th>
+                  <th>Gender</th>
+                  <th>Practice Address</th>
+                  <th>Practice Phone</th>
+              </tr>
+          </thead>
+      </table>
+      </div>
+    
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src='https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.2/autocomplete-lhc.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script>
+const idvProviderData = [
+    [
+        "1164407086",
+        "SCHNALL, S",
+        "Podiatry",
+        "M",
+        "2025 E STATE ST, HERMITAGE, PA 16148",
+        "(724) 981-4681"
+    ],
+    [
+        "1649207630",
+        "SHERRILL, S.",
+        "Physician/Internal Medicine",
+        "F",
+        "9333 PARK WEST BLVD, KNOXVILLE, TN 37923",
+        "(865) 531-4600"
+    ],
+    [
+        "1326219379",
+        "NAIK, S",
+        "Dentist",
+        "M",
+        "203 E SANTA FE, TOLUCA, IL 61369",
+        "(815) 452-2513"
+    ],
+    [
+        "1750342861",
+        "MOSS, S.",
+        "Physician/General Surgery",
+        "M",
+        "1919 E THOMAS RD BLDG. B, PHOENIX, AZ 85016",
+        "(602) 546-1000"
+    ],
+    [
+        "1457468852",
+        "AGOFF, S",
+        "Physician/Pathology",
+        "M",
+        "1100 9TH AVE, SEATTLE, WA 98101",
+        "(206) 223-6600"
+    ],
+    [
+        "1235342809",
+        "BRENNER, S PAIGE",
+        "Counselor",
+        "F",
+        "1912 BOOTHE CIRCLE SUITE 200, LONGWOOD, FL 32750",
+        "(407) 327-1765"
+    ],
+    [
+        "1437422656",
+        "BADAGLIALACQUA, S BRUCE",
+        "Physician/Family Practice",
+        "M",
+        "5850 E STILL CIR, MESA, AZ 85206",
+        "(480) 219-6050"
+    ]
+];
+
+$(document).ready(function () {
+    $('#example').DataTable({
+        data: idvProviderData,
+        dom: '<rt>',
+        columns: [
+            { title: 'NPI' },
+            { title: 'Name' },
+            { title: 'Provider Type' },
+            { title: 'Gender' },
+            { title: 'Practice Address' },
+            { title: 'Phone' },
+        ],
+    });
+  });
+new Def.Autocompleter.Search(
+  'npi_idv',
+  'https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?df=NPI,name.full,provider_type,gender,addr_practice.full,addr_practice.phone',
+  { tableFormat: true,
+    valueCols: [0, 1, 2, 3, 4, 5],
+    colHeaders: ['NPI','Name','Provider Type', 'Gender', 'Practice Address', 'Phone']
+  });
+
+
+
+function getInputData() {
+var inputNPI = $('#npi_idv').val().split('-');
+var provIdvArray = new Array(inputNPI);
+console.log(provIdvArray);
+}
+const btnSave = document.getElementById('btnSaveIdvProvider')
+btnSave.addEventListener('click', getInputData, false);
+
+
+
+</script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="js/1.12.1/jquery.dataTables.min.js"></script>
+</body>
+</html>
