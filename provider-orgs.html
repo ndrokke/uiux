@@ -19,8 +19,7 @@
 <section id="providerDataInputControls">
 
   <input type="hidden" id="getNpi" class="form-control">
-  <input type="hidden" id="getFirstName" class="form-control">
-  <input type="hidden" id="getLastName" class="form-control">
+  <input type="hidden" id="getProviderName" class="form-control">
   <input type="hidden" id="getProviderType" class="form-control">
   <input type="hidden" id="getGender" class="form-control">
   <input type="hidden" id="getAddress" class="form-control">
@@ -129,9 +128,22 @@ new Def.Autocompleter.Search(
 
 
 function getInputData() {
-var inputNPI = $('#npi_idv').val().split('-');
+var inputNPI = $('#npi_idv').val().split(' - ');
 var provIdvArray = new Array(inputNPI);
-console.log(provIdvArray);
+var provName = provIdvArray[0][1];
+var provNPI = provIdvArray[0][0];
+var provType = provIdvArray[0][2];
+var provGender = provIdvArray[0][3];
+var provAddress = provIdvArray[0][4];
+var provPhone = provIdvArray[0][5];
+
+$('#getProviderName').val(provName);
+console.log(provName);
+console.log(provNPI);
+console.log(provType);
+console.log(provGender);
+console.log(provAddress);
+console.log(provPhone);
 }
 const btnSave = document.getElementById('btnSaveIdvProvider')
 btnSave.addEventListener('click', getInputData, false);
