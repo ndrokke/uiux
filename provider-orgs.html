@@ -10,12 +10,19 @@
   </head>
   <body>
     <div class="container">
-    <h1>Hello, world!</h1>
-    <div id="idvWrapper" class="mb-3 d-flex">
-        <label for="npi_idv" class="form-label">Provider Organization</label>
+
+    <div id="idvWrapper" class="d-flex gap-5 align-items-center my-3">
+      <h4>Providers</h1>
+      <div class="flex-grow-1">
+        <label for="npi_idv" class="visually-hidden">Individual Provider Search</label>
         <input type="text" id="npi_idv" class="form-control" placeholder="Provider name or NPI">
       </div>
-      <button type="button" class="btn btn-success" id="btnSaveIdvProvider">Save</button>
+      <div>
+        <button type="button" class="btn btn-primary" id="btnSaveIdvProvider">Add</button>
+      </div>
+
+    </div>
+
 <section id="providerDataInputControls">
 
   <input type="hidden" id="getNpi" class="form-control">
@@ -138,6 +145,10 @@ var provAddress = provIdvArray[0][4];
 var provPhone = provIdvArray[0][5];
 
 $('#getProviderName').val(provName);
+$('#getNpi').val(provNPI);
+$('#getProviderType').val(provType);
+$('#getAddress').val(provAddress);
+$('#getPhone').val(provPhone);
 console.log(provName);
 console.log(provNPI);
 console.log(provType);
@@ -147,7 +158,6 @@ console.log(provPhone);
 }
 const btnSave = document.getElementById('btnSaveIdvProvider')
 btnSave.addEventListener('click', getInputData, false);
-
 
 
 </script>
