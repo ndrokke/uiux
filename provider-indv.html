@@ -116,6 +116,9 @@ const idvProviderData = [
     ]
 ];
 
+
+
+
 $(document).ready(function () {
     $('#example').DataTable({
         data: idvProviderData,
@@ -187,8 +190,18 @@ function submitForm(e) {
 
     let formValues = $('form input').val();
     getInputData();
+    var prefixURL = `https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?terms=`;
+    var npiValue =  $('#provNpi').val();
+    var suffixURL = `&ef=NPI,name.first,name.last,provider_type,gender,addr_practice.line1,addr_practice.line2,addr_practice.city,addr_practice.state,addr_practice.zip,addr_practice.phone`;
+    fetch(`${prefixURL}${npiValue}${suffixURL}`)
+      .then((response) => response.json())
+      .then((data) => JSON.stringify(data[2]))
+      .then((data) => localStorage.setItem("Provider Idv",data));
+//      
+
+    
     console.log(formValues);  
-    $('#npi_idv').val('').blur();    
+    $(npiValue).val('').blur();    
     provIdvForm.reset();
 }
 const provIdvForm = document.getElementById('providerIdvForm');
