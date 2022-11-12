@@ -1,147 +1,227 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link href='https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.2/autocomplete-lhc.min.css' rel="stylesheet">
-    <link href="css/1.12.1/jquery.dataTables.min.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap demo</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link href='https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.2/autocomplete-lhc.min.css' rel="stylesheet">
+<link href="css/1.12.1/jquery.dataTables.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
 
-    <div id="idvWrapper" class="d-flex gap-5 align-items-center my-3">
-      <h4>Providers</h1>
-      <div class="flex-grow-1">
-        <label for="npi_idv" class="visually-hidden">Individual Provider Search</label>
-        <input type="text" id="npi_idv" class="form-control" placeholder="Provider name or NPI" maxlength="1000">
-      </div>
-      <div>
-        <button type="button" class="btn btn-primary" id="btnSaveIdvProvider">Add</button>
-      </div>
+<div id="idvWrapper" class="d-flex gap-5 align-items-center my-3">
+<h4>Providers</h1>
+<div class="flex-grow-1">
+<label for="npi_idv" class="visually-hidden">Individual Provider Search</label>
+<input type="text" id="npi_idv" class="form-control" placeholder="Provider name or NPI" maxlength="1000">
+</div>
+<div>
+<button type="button" class="btn btn-primary" id="btnAddValesToInputs">Add</button>
+</div>
 
-    </div>
+</div>
 <section id="providerDataInputControls">
 <form id="providerIdvForm">
-  <input type="text" id="provNpi" class="form-control">
-  <input type="text" id="provFirstName" class="form-control">
-  <input type="text" id="provLastName" class="form-control">
-  <input type="text" id="provType" class="form-control">
-  <input type="text" id="provGender" class="form-control">
-  <input type="text" id="provAddrOne" class="form-control">
-  <input type="text" id="provAddrTwo" class="form-control">
-  <input type="text" id="provCity" class="form-control">
-  <input type="text" id="provState" class="form-control">
-  <input type="text" id="provZip" class="form-control">
-  <input type="text" id="provPhone" class="form-control">
-  <button type="submit" class="btn btn-primary" id="btnSaveIdvProviderForm">Add</button>
+<div class="form-floating">
+<input type="text" id="provNpi" class="form-control">
+  <label for="provNpi">NPI</label>
+</div>
+<div class="form-floating">
+<input type="text" id="provFirstName" class="form-control">
+  <label for="provFirstName">First Name</label>
+</div>
+<div class="form-floating">
+<input type="text" id="provLastName" class="form-control">
+  <label for="provLastName">Last Name</label>
+</div>
+<div class="form-floating">
+<input type="text" id="provType" class="form-control">
+  <label for="provType">Type</label>
+</div>
+
+<div class="form-floating">
+<input type="text" id="provGender" class="form-control">
+  <label for="provGender">Gender</label>
+</div>
+<div class="form-floating">
+<input type="text" id="provAddrOne" class="form-control">
+  <label for="provAddrOne">Address Line 1</label>
+</div>
+<div class="form-floating">
+<input type="text" id="provAddrTwo" class="form-control">
+<label for="provAddrTwo">Address Line 2</label>
+</div>
+<div class="form-floating">
+<input type="text" id="provCity" class="form-control">
+  <label for="provCity">City</label>
+</div>
+<div class="form-floating">
+<input type="text" id="provState" class="form-control">
+  <label for="provState">State</label>
+</div>
+<div class="form-floating">
+<input type="text" id="provZip" class="form-control">
+  <label for="provZip">Zip</label>
+</div>
+<div class="form-floating">
+<input type="text" id="provPhone" class="form-control">
+  <label for="provPhone">Phone</label>
+</div>
+
+
+
+<button type="submit" class="btn btn-primary" id="btnSaveIdvProviderForm">Add</button>
 </form>  
 </section>      
-      <div class="table-wrapper">
-        <table id="example" class="display" style="width:100%">
-          <thead>
-              <tr>
-                  <th>NPI</th>
-                  <th>Name</th>
-                  <th>Provider Type</th>
-                  <th>Gender</th>
-                  <th>Practice Address</th>
-                  <th>Practice Phone</th>
-              </tr>
-          </thead>
-      </table>
-      </div>
-    
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-    <script src='https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.2/autocomplete-lhc.min.js'></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<div class="table-wrapper">
+<table id="example" class="display" style="width:100%">
+<thead>
+  <tr>
+      <th>ID</th>
+      <th>NPI</th>
+      <th>Name</th>
+      <th>Provider Type</th>
+      <th>Gender</th>
+      <th>Practice Address</th>
+      <th>Practice Phone</th>
+  </tr>
+</thead>
+</table>
+</div>
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script src='https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.2/autocomplete-lhc.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script>
+
 const idvProviderData = [
-    [
-        "1164407086",
-        "SCHNALL, S",
-        "Podiatry",
-        "M",
-        "2025 E STATE ST, HERMITAGE, PA 16148",
-        "(724) 981-4681"
-    ],
-    [
-        "1649207630",
-        "SHERRILL, S.",
-        "Physician/Internal Medicine",
-        "F",
-        "9333 PARK WEST BLVD, KNOXVILLE, TN 37923",
-        "(865) 531-4600"
-    ],
-    [
-        "1326219379",
-        "NAIK, S",
-        "Dentist",
-        "M",
-        "203 E SANTA FE, TOLUCA, IL 61369",
-        "(815) 452-2513"
-    ],
-    [
-        "1750342861",
-        "MOSS, S.",
-        "Physician/General Surgery",
-        "M",
-        "1919 E THOMAS RD BLDG. B, PHOENIX, AZ 85016",
-        "(602) 546-1000"
-    ],
-    [
-        "1457468852",
-        "AGOFF, S",
-        "Physician/Pathology",
-        "M",
-        "1100 9TH AVE, SEATTLE, WA 98101",
-        "(206) 223-6600"
-    ],
-    [
-        "1235342809",
-        "BRENNER, S PAIGE",
-        "Counselor",
-        "F",
-        "1912 BOOTHE CIRCLE SUITE 200, LONGWOOD, FL 32750",
-        "(407) 327-1765"
-    ],
-    [
-        "1437422656",
-        "BADAGLIALACQUA, S BRUCE",
-        "Physician/Family Practice",
-        "M",
-        "5850 E STILL CIR, MESA, AZ 85206",
-        "(480) 219-6050"
-    ]
+[
+"7",
+"1164407086",
+"SCHNALL, S",
+"Podiatry",
+"M",
+"2025 E STATE ST, HERMITAGE, PA 16148",
+"(724) 981-4681"
+],
+[
+"6",
+"1649207630",
+"SHERRILL, S.",
+"Physician/Internal Medicine",
+"F",
+"9333 PARK WEST BLVD, KNOXVILLE, TN 37923",
+"(865) 531-4600"
+],
+[
+"5",
+"1326219379",
+"NAIK, S",
+"Dentist",
+"M",
+"203 E SANTA FE, TOLUCA, IL 61369",
+"(815) 452-2513"
+],
+[
+"4",
+"1750342861",
+"MOSS, S.",
+"Physician/General Surgery",
+"M",
+"1919 E THOMAS RD BLDG. B, PHOENIX, AZ 85016",
+"(602) 546-1000"
+],
+[
+"3",
+"1457468852",
+"AGOFF, S",
+"Physician/Pathology",
+"M",
+"1100 9TH AVE, SEATTLE, WA 98101",
+"(206) 223-6600"
+],
+[
+"2",
+"1235342809",
+"BRENNER, S PAIGE",
+"Counselor",
+"F",
+"1912 BOOTHE CIRCLE SUITE 200, LONGWOOD, FL 32750",
+"(407) 327-1765"
+],
+[
+"1",
+"1437422656",
+"BADAGLIALACQUA, S BRUCE",
+"Physician/Family Practice",
+"M",
+"5850 E STILL CIR, MESA, AZ 85206",
+"(480) 219-6050"
+]
 ];
 
 
 
-
 $(document).ready(function () {
-    $('#example').DataTable({
-        data: idvProviderData,
-        dom: '<rt>',
-        columns: [
-            { title: 'NPI' },
-            { title: 'Name' },
-            { title: 'Provider Type' },
-            { title: 'Gender' },
-            { title: 'Practice Address' },
-            { title: 'Phone' },
-        ],
-    });
-  });
+var t = $('#example').DataTable({
+data: idvProviderData,
+dom: '<rt>',
+order: [[0, 'desc']],
+columns: [
+{ title: 'ID' },
+{ title: 'NPI' },
+{ title: 'Name' },
+{ title: 'Provider Type' },
+{ title: 'Gender' },
+{ title: 'Practice Address' },
+{ title: 'Phone' },
+],
+});
 
-  new Def.Autocompleter.Search(
-  'npi_idv',
-  'https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?df=NPI,name.first,name.last,provider_type,gender,addr_practice.line1,addr_practice.line2,addr_practice.city,addr_practice.state,addr_practice.zip,addr_practice.phone&ef=NPI,name.first,name.last,provider_type,gender,addr_practice.line1,addr_practice.line2,addr_practice.city,addr_practice.state,addr_practice.zip,addr_practice.phone:test_phone',
-  // 'https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?df=NPI,name.credential,name.prefix,name.first,name.last,name.suffix,provider_type,gender,addr_practice.line1,addr_practice.line2,addr_practice.city,addr_practice.state,addr_practice.zip,addr_practice.phone&ef=NPI,name.credential,name.prefix,name.first,name.last,name.suffix,provider_type,gender,addr_practice.line1,addr_practice.line2,addr_practice.city,addr_practice.state,addr_practice.zip,addr_practice.phone',
-  { tableFormat: true,
-    valueCols: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    colHeaders: ['NPI','First Name', 'Last Name', 'Provider Type', 'Gender', 'L1', 'L2','City',"St","Zip",'Phone']
-  });
+var rowLength = $('#example tbody tr').length+1;
+var counter = rowLength;
+
+$('#btnSaveIdvProviderForm').on('click', function (e) {
+  e.preventDefault();
+  submitForm();
+  addTableRow();
+  $('#npi_idv').val('');
+  provIdvForm.reset();
+});
+
+function addTableRow() {
+var rowData = localStorage.getItem("Provider Idv") || '{}';
+var providerIdv = JSON.parse(rowData);
+
+
+t.row.add([
+counter,
+providerIdv.NPI,
+providerIdv["name.first"]  + ' ' + providerIdv["name.last"],
+providerIdv.provider_type,
+providerIdv.gender,
+providerIdv["addr_practice.line1"] + ' - ' + providerIdv["addr_practice.line2"] + ' ' + providerIdv["addr_practice.city"] + ', ' + providerIdv["addr_practice.state"] + ' ' + providerIdv["addr_practice.zip"],
+providerIdv["addr_practice.phone"],
+]).draw(false);
+
+counter++;
+
+}
+
+// Automatically add a first row of data
+//$('#btnSaveIdvProviderForm').click();
+
+
+new Def.Autocompleter.Search(
+'npi_idv',
+'https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?df=NPI,name.first,name.last,provider_type,gender,addr_practice.line1,addr_practice.line2,addr_practice.city,addr_practice.state,addr_practice.zip,addr_practice.phone&ef=NPI,name.first,name.last,provider_type,gender,addr_practice.line1,addr_practice.line2,addr_practice.city,addr_practice.state,addr_practice.zip,addr_practice.phone:test_phone',
+// 'https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?df=NPI,name.credential,name.prefix,name.first,name.last,name.suffix,provider_type,gender,addr_practice.line1,addr_practice.line2,addr_practice.city,addr_practice.state,addr_practice.zip,addr_practice.phone&ef=NPI,name.credential,name.prefix,name.first,name.last,name.suffix,provider_type,gender,addr_practice.line1,addr_practice.line2,addr_practice.city,addr_practice.state,addr_practice.zip,addr_practice.phone',
+{ tableFormat: true,
+valueCols: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+colHeaders: ['NPI','First Name', 'Last Name', 'Provider Type', 'Gender', 'L1', 'L2','City',"St","Zip",'Phone']
+});
 
 
 
@@ -159,7 +239,7 @@ var provCity = provIdvArray[0][7];
 var provState = provIdvArray[0][8];
 var provZip = provIdvArray[0][9];
 var provPhone = provIdvArray[0][10];
-
+var inputDataString = [...provIdvArray];
 $('#provNpi').val(provNPI);
 $('#provFirstName').val(provFirstName);
 $('#provLastName').val(provLastName);
@@ -171,46 +251,27 @@ $('#provCity').val(provCity);
 $('#provState').val(provState);
 $('#provZip').val(provZip);
 $('#provPhone').val(provPhone);
-// console.log(provNPI);
-// console.log(provFirstName);
-// console.log(provLastName);
-// console.log(provType);
-// console.log(provGender);
-// console.log(provAddrOne);
-// console.log(provAddrTwo);
-// console.log(provCity);
-// console.log(provState);
-// console.log(provPhone);
-// console.log(provZip);
 }
 
 
-function submitForm(e) {
-    e.preventDefault();
-
-    let formValues = $('form input').val();
-    getInputData();
-    var prefixURL = `https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?terms=`;
-    var npiValue =  $('#provNpi').val();
-    var suffixURL = `&ef=NPI,name.first,name.last,provider_type,gender,addr_practice.line1,addr_practice.line2,addr_practice.city,addr_practice.state,addr_practice.zip,addr_practice.phone`;
-    fetch(`${prefixURL}${npiValue}${suffixURL}`)
-      .then((response) => response.json())
-      .then((data) => JSON.stringify(data[2]))
-      .then((data) => localStorage.setItem("Provider Idv",data));
-//      
-
-    
-    console.log(formValues);  
-    $(npiValue).val('').blur();    
-    provIdvForm.reset();
+function submitForm(inputDataString) {
+let formValues = $('form input').val();
+var prefixURL = `https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?terms=`;
+var npiValue =  $('#provNpi').val();
+var suffixURL = `&ef=NPI,name.first,name.last,provider_type,gender,addr_practice.line1,addr_practice.line2,addr_practice.city,addr_practice.state,addr_practice.zip,addr_practice.phone`;
+fetch(`${prefixURL}${npiValue}${suffixURL}`)
+.then((response) => response.json())
+.then((data) => JSON.stringify(data[2]))
+.then((data) => localStorage.setItem("Provider Idv",data));
+// console.log(formValues);  
+$(npiValue).val('').blur();    
 }
+
 const provIdvForm = document.getElementById('providerIdvForm');
-const btnStore = document.getElementById('btnSaveIdvProviderForm');
-const btnSave = document.getElementById('btnSaveIdvProvider');
-btnSave.addEventListener('click', getInputData, false);
-btnStore.addEventListener('click',submitForm, false);
+const btnAddValuesToInputs = document.getElementById('btnAddValesToInputs');
+btnAddValuesToInputs.addEventListener("click", getInputData,false);
 
-
+});
 
 </script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
