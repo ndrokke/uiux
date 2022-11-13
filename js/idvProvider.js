@@ -87,14 +87,14 @@ var counter = rowLength;
 
 $('#btnSaveIdvProviderForm').on('click', function (e) {
 e.preventDefault();
-submitForm();
+getInputData();
 addTableRow();
 $('#npi_idv').val('');
 provIdvForm.reset();
 });
 
 function addTableRow() {
-var rowData = localStorage.getItem("Provider Idv") || '{}';
+var rowData = localStorage.getItem("Provider Idv");
 var providerIdv = JSON.parse(rowData);
 
 
@@ -127,7 +127,6 @@ valueCols: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 colHeaders: ['NPI','First Name', 'Last Name', 'Provider Type', 'Gender', 'L1', 'L2','City',"St","Zip",'Phone']
 });
 
-});
 
 
 function getInputData() {
@@ -175,6 +174,15 @@ function getInputData() {
     $('#provState').val(addressState);
     $('#provZip').val(addressZip);
     $('#provPhone').val(addressPhone);
+
+    let formValues = $('form input').val();
+    var prefixURL = `https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?terms=`;
+    var npiValue =  $('#provNpi').val();
+    var suffixURL = `&ef=NPI,name.first,name.last,provider_type,gender,addr_practice.line1,addr_practice.line2,addr_practice.city,addr_practice.state,addr_practice.zip,addr_practice.phone`;
+    fetch(`${prefixURL}${npiValue}${suffixURL}`)
+    .then((response) => response.json())
+    .then((data) => JSON.stringify(data[2]))
+    .then((data) => localStorage.setItem("Provider Idv", data))    
     }
     
 
@@ -183,18 +191,4 @@ function getInputData() {
  const btnAddValuesToInputs = document.getElementById('btnAddValesToInputs');
  btnAddValuesToInputs.addEventListener("click", getInputData,false);
 
-function submitForm(inputDataString) {
-let formValues = $('form input').val();
-var prefixURL = `https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?terms=`;
-var npiValue =  $('#provNpi').val();
-var suffixURL = `&ef=NPI,name.first,name.last,provider_type,gender,addr_practice.line1,addr_practice.line2,addr_practice.city,addr_practice.state,addr_practice.zip,addr_practice.phone`;
-fetch(`${prefixURL}${npiValue}${suffixURL}`)
-.then((response) => response.json())
-.then((data) => JSON.stringify(data[2]))
-.then((data) => localStorage.setItem("Provider Idv", data));
-console.log(formValues);  
-$(npiValue).val('').blur();    
-}
-
-
-
+});
