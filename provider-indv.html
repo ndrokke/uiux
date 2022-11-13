@@ -164,21 +164,7 @@ const idvProviderData = [
 
 
 
-$(document).ready(function () {
-var t = $('#example').DataTable({
-data: idvProviderData,
-dom: '<rt>',
-order: [[0, 'desc']],
-columns: [
-{ title: 'ID' },
-{ title: 'NPI' },
-{ title: 'Name' },
-{ title: 'Provider Type' },
-{ title: 'Gender' },
-{ title: 'Practice Address' },
-{ title: 'Phone' },
-],
-});
+
 
 var rowLength = $('#example tbody tr').length+1;
 var counter = rowLength;
@@ -270,11 +256,9 @@ $(npiValue).val('').blur();
 const provIdvForm = document.getElementById('providerIdvForm');
 const btnAddValuesToInputs = document.getElementById('btnAddValesToInputs');
 btnAddValuesToInputs.addEventListener("click", getInputData,false);
-
-});
-
 </script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="js/1.12.1/jquery.dataTables.min.js"></script>
+<script src="js/idvProviderTable.js"></script>
 </body>
 </html>
