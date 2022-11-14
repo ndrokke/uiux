@@ -1,4 +1,5 @@
-.page-wrapper {
+body {
     display:grid;
     gap:2;
+    padding:2em;
 }
